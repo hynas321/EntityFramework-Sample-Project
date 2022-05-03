@@ -1,5 +1,4 @@
 ﻿using ConsoleAppEntityFramework.DbData;
-using ConsoleAppEntityFramework.GenericDbContext;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -7,12 +6,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppEntityFramework
+namespace ConsoleAppEntityFramework.Supplier
 {
-    public class DbContextSupplier : DbContext, IDbContext
+    public class DbContextSupplier : DbContext
     {
-        private string serverName = "DESKTOP-FPKKAFK";
-        private string databaseName = "Supplier";
+        private string serverName;
+        private string databaseName;
+        public DbContextSupplier(string serverName, string databaseName)
+        {
+            this.serverName = serverName;
+            this.databaseName = databaseName;
+        }
+
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Product> ProductTypes { get; set; }
         public DbSet<LineItem> LineItems { get; set; }

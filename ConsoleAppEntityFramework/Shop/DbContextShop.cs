@@ -1,5 +1,4 @@
 ﻿using ConsoleAppEntityFramework.DbData;
-using ConsoleAppEntityFramework.GenericDbContext;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -9,10 +8,15 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppEntityFramework.Shop
 {
-    public class DbContextShop : DbContext, IDbContext
+    public class DbContextShop : DbContext
     {
-        private string serverName = "DESKTOP-FPKKAFK";
-        private string databaseName = "Shop";
+        private string serverName;
+        private string databaseName;
+        public DbContextShop(string serverName, string databaseName)
+        {
+            this.serverName = serverName;
+            this.databaseName = databaseName;
+        }
 
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Product> ProductTypes { get; set; }

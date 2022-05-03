@@ -1,5 +1,4 @@
 ﻿using ConsoleAppEntityFramework.DbData;
-using ConsoleAppEntityFramework.GenericDbContext;
 using ConsoleAppEntityFramework.Shop;
 using System;
 using System.Collections.Generic;
@@ -7,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConsoleAppEntityFramework
+namespace ConsoleAppEntityFramework.Supplier
 {
     public class FruitSupplier : ISupplier
     {
@@ -17,7 +16,7 @@ namespace ConsoleAppEntityFramework
         {
             Db = db;
         }
-        public void SellLineItem(IShop shop, LineItem lineItem, Employee employee)
+        public void SupplyLineItem(IShop shop, LineItem lineItem, Employee employee)
         {
             //No implementation yet
         }
