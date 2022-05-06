@@ -9,7 +9,14 @@ namespace ConsoleAppEntityFramework
         public static void Main(string[] args)
         {
             string server, database1, database2;
-            string[] dbInfo = File.ReadLines("savedDB.txt").ToArray();
+            string[] dbInfo;
+
+            if (!File.Exists("savedDB.txt"))
+            {
+                using (File.Create("savedDB.txt")) { }
+            }
+
+            dbInfo = File.ReadLines("savedDB.txt").ToArray();
             dbInfo = dbInfo.SetDatabaseInformation();
 
             IShop shop = new FruitShop(new DbContextShop(dbInfo[0], dbInfo[1]));
