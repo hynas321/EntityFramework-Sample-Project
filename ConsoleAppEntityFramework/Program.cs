@@ -19,24 +19,12 @@ namespace ConsoleAppEntityFramework
             dbInfo = File.ReadLines("savedDB.txt").ToArray();
             dbInfo = dbInfo.SetDatabaseInformation();
 
-            IShop shop = new FruitShop(new DbContextShop(dbInfo[0], dbInfo[1]));
-            ISupplier supplier = new FruitSupplier(new DbContextSupplier(dbInfo[0], dbInfo[2]));
+            FruitShop shop = new FruitShop(new DbContextShop(dbInfo[0], dbInfo[1]));
+            FruitSupplier supplier = new FruitSupplier(new DbContextSupplier(dbInfo[0], dbInfo[2]));
 
-            Employee employee = new Employee() { FullName = "Jan Kowalski", Post = EmployeePost.manager.ToString() };
-            Employee employee2 = new Employee() { FullName = "Adam Nowak", Post = EmployeePost.warehouser.ToString() };
-            Employee employee3 = new Employee() { FullName = "Kamil Ślimak", Post = EmployeePost.manager.ToString() };
-
-            Product product = new Product() { Name = "Apple", OriginCountry = "Poland" };
-            LineItem lineItem = new LineItem() { Product = product, Count = 100, PriceSum = 100 };
-
-            supplier.Db.Add(employee);
-            supplier.Db.Add(employee2);
-            shop.Db.Add(employee3);
-
-            supplier.Db.Add(product);
-            supplier.Db.Add(product);
-            supplier.Db.Add(lineItem);
-            supplier.Db.Add(lineItem);
+            /*
+             Place for logic
+            */
 
             try
             {

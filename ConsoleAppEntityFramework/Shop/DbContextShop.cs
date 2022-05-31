@@ -19,7 +19,7 @@ namespace ConsoleAppEntityFramework.Shop
         }
 
         public DbSet<Employee> Employees { get; set; }
-        public DbSet<Product> ProductTypes { get; set; }
+        public DbSet<Product> Products { get; set; }
         public DbSet<LineItem> LineItems { get; set; }
         public DbSet<Invoice> Invoices { get; set; }
 

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using ConsoleAppEntityFramework.AbstractData;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,18 +9,12 @@ using System.Threading.Tasks;
 
 namespace ConsoleAppEntityFramework.DbData
 {
-    public class Employee
+    public class Employee : IEmployee
     {
         [Key]
         public int Id { get; set; }
         [Required]
         public string FullName { get; set; }
         public string Post { get; set; }
-    }
-
-    public enum EmployeePost
-    {
-        warehouser,
-        manager,
     }
 }
