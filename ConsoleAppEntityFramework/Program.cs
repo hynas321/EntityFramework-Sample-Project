@@ -22,8 +22,21 @@ namespace ConsoleAppEntityFramework
             FruitShop shop = new FruitShop(new DbContextShop(dbInfo[0], dbInfo[1]));
             FruitSupplier supplier = new FruitSupplier(new DbContextSupplier(dbInfo[0], dbInfo[2]));
 
+            try
+            {
+                var shopEmployee = shop.GetEmployee(1);
+                var product1 = shop.GetProduct(1);
+                var product2 = shop.GetProduct(2);
+
+                var supplierEmployee = supplier.GetEmployee(1);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
             /*
-             Place for logic
+             Place for more logic
             */
 
             try

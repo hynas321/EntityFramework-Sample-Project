@@ -1,15 +1,8 @@
-﻿using ConsoleAppEntityFramework.AbstractData;
-using ConsoleAppEntityFramework.DbData;
-using ConsoleAppEntityFramework.Logic;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ConsoleAppEntityFramework.DbData;
 
 namespace ConsoleAppEntityFramework.Shop
 {
-    public class FruitShop : ILogic
+    public class FruitShop
     {
         public DbContextShop Db { get; }
 
@@ -18,7 +11,7 @@ namespace ConsoleAppEntityFramework.Shop
             Db = db;
         }
 
-        public void AddEmployee(IEmployee employee)
+        public void AddEmployee(Employee employee)
         {
             Db.Add(employee);
         }
@@ -28,18 +21,17 @@ namespace ConsoleAppEntityFramework.Shop
             Db.Remove(Db.Employees.FirstOrDefault(x => x.Id == id));
         }
 
-        public IEmployee GetEmployee(int id)
+        public Employee GetEmployee(int id)
         {
             return Db.Employees.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<IEmployee> GetEmployees()
+        public List<Employee> GetEmployees()
         {
             return Db.Employees.ToList();
-
         }
 
-        public void AddInvoice(IInvoice invoice)
+        public void AddInvoice(Invoice invoice)
         {
             Db.Add(invoice);
         }
@@ -49,17 +41,17 @@ namespace ConsoleAppEntityFramework.Shop
             Db.Remove(Db.Invoices.FirstOrDefault(x => x.Id == id));
         }
 
-        public IInvoice GetInvoice(int id)
+        public Invoice GetInvoice(int id)
         {
-            return (IInvoice)Db.Invoices.FirstOrDefault(x => x.Id == id);
+            return Db.Invoices.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<IInvoice> GetInvoices()
+        public List<Invoice> GetInvoices()
         {
-            return (IEnumerable<IInvoice>)Db.Invoices.ToList();
+            return Db.Invoices.ToList();
         }
 
-        public void AddLineItem(ILineItem lineItem)
+        public void AddLineItem(LineItem lineItem)
         {
             Db.Add(lineItem);
         }
@@ -69,17 +61,17 @@ namespace ConsoleAppEntityFramework.Shop
             Db.Remove(Db.Employees.FirstOrDefault(x => x.Id == id));
         }
 
-        public ILineItem GetLineItem(int id)
+        public LineItem GetLineItem(int id)
         {
-            return (ILineItem)Db.LineItems.FirstOrDefault(x => x.Id == id);
+            return Db.LineItems.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<ILineItem> GetLineItems()
+        public List<LineItem> GetLineItems()
         {
-            return (IEnumerable<ILineItem>)Db.LineItems.ToList();
+            return Db.LineItems.ToList();
         }
 
-        public void AddProduct(IProduct product)
+        public void AddProduct(Product product)
         {
             Db.Add(product);
         }
@@ -89,14 +81,14 @@ namespace ConsoleAppEntityFramework.Shop
             Db.Remove(Db.Employees.FirstOrDefault(x => x.Id == id));
         }
 
-        public IProduct GetProduct(int id)
+        public Product GetProduct(int id)
         {
-            return (IProduct)Db.Products.FirstOrDefault(x => x.Id == id);
+            return Db.Products.FirstOrDefault(x => x.Id == id);
         }
 
-        public IEnumerable<IProduct> GetProducts()
+        public List<Product> GetProducts()
         {
-            return (IEnumerable<IProduct>)Db.Products.ToList();
+            return Db.Products.ToList();
         }
     }
 }
